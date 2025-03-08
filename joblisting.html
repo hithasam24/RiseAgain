@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Return to Work - Job Listings</title>
+    <link rel="stylesheet" href="joblisting.css">
+</head>
+<body>
+    <header>
+        <h1>Women Return to Work</h1>
+        <p>Find the perfect job that supports your journey back to work</p>
+    </header>
+    
+    <main>
+        <div class="img">
+            <img src="picture1.jpg" alt="Women Empowerment">
+        </div>
+        <section class="job-search">
+            <h2>Find Your Next Opportunity</h2>
+            <input type="text" id="job-search" placeholder="Search for jobs...">
+            <select id="job-type">
+                <option value="">Job Type</option>
+                <option value="remote">Remote</option>
+                <option value="hybrid">Hybrid</option>
+                <option value="flexible">Flexible</option>
+            </select>
+            <select id="industry">
+                <option value="">Industry</option>
+                <option value="tech">Technology</option>
+                <option value="marketing">Marketing</option>
+                <option value="finance">Finance</option>
+            </select>
+            <button onclick="filterJobs()">Search</button>
+        </section>
+        
+        <section class="job-listings">
+            <h2>Job Listings</h2>
+            <div id="job-container">
+                <p>Loading jobs...</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Women Return to Work. All rights reserved.</p>
+    </footer>
+    
+    <script src="joblisting.js"></script>
+</body>
