@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiseAgain - Resume & Profile Builder</title>
+  <link rel="stylesheet" href="resumebuild.css">
+</head>
+<body>
+  <header>
+    <h1>RiseAgain</h1>
+    <p>Your journey back to career success starts here</p>
+  </header>
+  
+  <main>
+    <div class="mom">
+        <img src="https://cdn.cdnparenting.com/articles/2021/06/11141921/1946099965.webp" alt="Mother and Baby">
+    </div>
+    <!-- Resume & Profile Builder Section -->
+    <section id="resume-builder">
+      <h2>Resume & Profile Builder</h2>
+      <form id="resumeForm">
+        <div class="form-group">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="summary">Professional Summary:</label>
+          <textarea id="summary" name="summary" placeholder="Write a brief summary about yourself" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="skills">Skills:</label>
+          <input type="text" id="skills" name="skills" placeholder="e.g. Communication, Teamwork, Leadership" required>
+        </div>
+        <button type="button" onclick="buildResume()">Build Resume</button>
+      </form>
+      <div id="resumePreview" class="resume-preview">
+        <h3>Your Resume Preview</h3>
+        <p>Fill the form to generate your resume preview.</p>
+      </div>
+    </section>
+    
+    <!-- Chat Bot Section -->
+    <section id="chat-bot">
+      <h2>Need Help? Chat with our Bot!</h2>
+      <div class="chat-container" id="chatContainer">
+        <!-- Chat messages will appear here -->
+      </div>
+      <div class="chat-input-container">
+        <input type="text" id="chatInput" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+    
+    <h2 class="stories">Success Stories</h2>
+    <!-- Success Stories Section -->
+    <section id="success-stories">
+        <div class="testimonial">
+          <img src="https://jumpcloud.com/wp-content/uploads/2023/09/Webinar-recap-1.jpg" alt="Jane's Photo">
+          <blockquote>
+            "I took a break to care for my newborn, and returning to work seemed impossible. Thanks to RiseAgain, I rebuilt my resume and secured a job that truly values my skills and life experience."
+          </blockquote>
+          <p class="author">- Jane Doe</p>
+        </div>
+        <div class="testimonial">
+          <img src="https://www.smartsys.be/wp-content/uploads/2020/02/Image-block.jpg" alt="Maria's Photo">
+          <blockquote>
+            "RiseAgain changed my life. Their resume builder and genuine success stories inspired me to overcome my fears and land a flexible role that works perfectly with my family schedule."
+          </blockquote>
+          <p class="author">- Maria Smith</p>
+        </div>
+        <div class="testimonial">
+          <img src="https://therapistdevelopmentcenter.com/sites/default/files/studying-social-worker.jpg" alt="Lisa's Photo">
+          <blockquote>
+            "Returning to work after maternity leave was daunting, but RiseAgain provided me with the tools and community I needed. Now, I’m thriving in a role that supports both my career and family life."
+          </blockquote>
+          <p class="author">- Lisa Johnson</p>
+        </div>
+      </section>
+      
+    
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 RiseAgain. All rights reserved.</p>
+  </footer>
+  
+  <script src="resumebuild.js"></script>
+</body>
+</html>

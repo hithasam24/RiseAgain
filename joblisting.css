@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #fff5f8;
@@ -6,30 +7,42 @@ body {
     padding: 0;
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 20px;
-    background: #ff85a2;
+    background: #d63384;
     color: white;
 }
-
-header img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
+nav {
+    background: #d63384;
+    padding: 10px;
+    text-align: left;
 }
 
-main {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+.home-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    background: #b02969;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-h2 {
-    color: #d63384;
+.home-btn:hover {
+    background: #ff85a2;
+}
+header h1 {
+    font-size: 2.5em;
 }
 
+header p {
+    font-size: 1.2em;
+}
+
+/* Search & Filter Section */
 .job-search {
     background: #ffe6ea;
     padding: 20px;
@@ -56,26 +69,53 @@ h2 {
     background: #ff85a2;
 }
 
-.job-listings {
-    margin-top: 20px;
+/* Listings */
+.listings-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.job-card {
+/* Job & Employer Cards */
+.job-card, .employer-card {
     background: white;
     padding: 15px;
-    margin: 10px 0;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(45% - 20px);
+    min-width: 300px;
+    border-left: 5px solid #d63384;
 }
 
+/* Rating */
+.rating {
+    font-size: 1.2em;
+    color: #f39c12;
+}
+
+/* Apply & Visit Buttons */
+.btn {
+    display: inline-block;
+    background: #d63384;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #b02969;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     background: #ff85a2;
     color: white;
-}
-
-img {
-    padding-left: 40%;
-    padding-bottom: 30px;
 }

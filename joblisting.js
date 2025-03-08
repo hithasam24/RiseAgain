@@ -21,27 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const jobs = [
-        {
-            title: "Software Engineer",
-            company: "XYZ Tech",
-            location: "Remote",
-            salary: "$80,000 - $100,000",
-            link: "#"
-        },
-        {
-            title: "Marketing Manager",
-            company: "ABC Corp",
-            location: "New York, NY",
-            salary: "$70,000 - $90,000",
-            link: "#"
-        },
-        {
-            title: "Data Analyst",
-            company: "Global Solutions",
-            location: "San Francisco, CA",
-            salary: "$85,000 - $110,000",
-            link: "#"
-        }
+        { title: "Software Engineer", type: "Remote", industry: "Technology" },
+        { title: "Marketing Manager", type: "Hybrid", industry: "Marketing" },
+        { title: "Financial Analyst", type: "Freelance", industry: "Finance" }
     ];
 
     const employerList = document.getElementById("employer-list");
@@ -51,41 +33,52 @@ document.addEventListener("DOMContentLoaded", function() {
         employerList.innerHTML = "";
         employers.forEach(employer => {
             const employerCard = document.createElement("div");
-            employerCard.classList.add("listing-card");
+            employerCard.classList.add("employer-card");
             employerCard.innerHTML = `
                 <h3>${employer.name}</h3>
                 <p><strong>Inclusivity Rating:</strong> <span class="rating">⭐ ${employer.rating}</span></p>
                 <p><strong>Benefits:</strong> ${employer.benefits}</p>
-                <a href="${employer.link}" class="apply-btn">Visit Employer</a>
+                <a href="${employer.link}" class="btn">Visit Employer</a>
             `;
             employerList.appendChild(employerCard);
         });
     }
 
-    function displayJobs() {
+    function displayJobs(jobsToDisplay) {
         jobList.innerHTML = "";
-        jobs.forEach(job => {
+        if (jobsToDisplay.length === 0) {
+            jobList.innerHTML = "<p>No jobs found.</p>";
+            return;
+        }
+
+        jobsToDisplay.forEach(job => {
             const jobCard = document.createElement("div");
-            jobCard.classList.add("listing-card");
+            jobCard.classList.add("job-card");
             jobCard.innerHTML = `
                 <h3>${job.title}</h3>
-                <p><strong>Company:</strong> ${job.company}</p>
-                <p><strong>Location:</strong> ${job.location}</p>
-                <p><strong>Salary:</strong> ${job.salary}</p>
-                <a href="${job.link}" class="apply-btn">Apply Now</a>
+                <p><strong>Type:</strong> ${job.type}</p>
+                <p><strong>Industry:</strong> ${job.industry}</p>
             `;
             jobList.appendChild(jobCard);
         });
     }
 
-    function filterListings() {
-        const query = document.getElementById("search-bar").value.toLowerCase();
-        displayEmployers(employers.filter(e => e.name.toLowerCase().includes(query)));
-        displayJobs(jobs.filter(j => j.title.toLowerCase().includes(query) || j.company.toLowerCase().includes(query)));
+    function filterJobs() {
+        let searchQuery = document.getElementById("job-search").value.toLowerCase();
+        let selectedType = document.getElementById("job-type").value;
+        let selectedIndustry = document.getElementById("industry").value;
+
+        let filteredJobs = jobs.filter(job => 
+            (job.title.toLowerCase().includes(searchQuery) || searchQuery === "") &&
+            (job.type === selectedType || selectedType === "") &&
+            (job.industry === selectedIndustry || selectedIndustry === "")
+        );
+
+        displayJobs(filteredJobs);
     }
 
     displayEmployers();
-    displayJobs();
+    displayJobs(jobs);
 
-    window.filterListings = filterListings;
+    window.filterJobs = filterJobs;
 });
