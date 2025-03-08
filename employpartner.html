@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Partnerships & Inclusivity Ratings</title>
+    <link rel="stylesheet" href="employpartner.css">
+    <script defer src="employpartner.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Employer Partnerships & Inclusivity Ratings</h1>
+            <p>Find companies that support women returning to work</p>
+            <a href="index.html" class="btn">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="container">
+        <input type="text" id="search-bar" placeholder="Search by company name or benefits..." onkeyup="filterCompanies()">
+    </section>
+
+    <!-- Employer Listings -->
+    <section class="container">
+        <h2>Verified Companies</h2>
+        <div id="company-list">
+            <!-- Companies will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Add a Review -->
+    <section class="container">
+        <h2>Submit a Company Review</h2>
+        <form id="review-form">
+            <input type="text" id="company-name" placeholder="Company Name" required>
+            <input type="number" id="rating" min="1" max="5" placeholder="Rating (1-5)" required>
+            <textarea id="review-text" placeholder="Write your review..." required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Women Return to Work | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

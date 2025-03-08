@@ -1,39 +1,91 @@
-const jobData = [
-    { title: "Software Engineer", type: "Remote", industry: "Technology" },
-    { title: "Marketing Manager", type: "Hybrid", industry: "Marketing" },
-    { title: "Financial Analyst", type: "Flexible", industry: "Finance" }
-];
+document.addEventListener("DOMContentLoaded", function() {
+    const employers = [
+        {
+            name: "XYZ Tech",
+            rating: 4.8,
+            benefits: "Flexible Hours, Remote Work, Maternity Leave",
+            link: "#"
+        },
+        {
+            name: "ABC Corp",
+            rating: 4.5,
+            benefits: "On-Site Childcare, Paid Parental Leave, Returnship Program",
+            link: "#"
+        },
+        {
+            name: "Global Solutions",
+            rating: 4.7,
+            benefits: "Work from Home, Women Leadership Programs",
+            link: "#"
+        }
+    ];
 
-function filterJobs() {
-    let searchQuery = document.getElementById("job-search").value.toLowerCase();
-    let selectedType = document.getElementById("job-type").value;
-    let selectedIndustry = document.getElementById("industry").value;
+    const jobs = [
+        {
+            title: "Software Engineer",
+            company: "XYZ Tech",
+            location: "Remote",
+            salary: "$80,000 - $100,000",
+            link: "#"
+        },
+        {
+            title: "Marketing Manager",
+            company: "ABC Corp",
+            location: "New York, NY",
+            salary: "$70,000 - $90,000",
+            link: "#"
+        },
+        {
+            title: "Data Analyst",
+            company: "Global Solutions",
+            location: "San Francisco, CA",
+            salary: "$85,000 - $110,000",
+            link: "#"
+        }
+    ];
 
-    let filteredJobs = jobData.filter(job => 
-        (job.title.toLowerCase().includes(searchQuery) || searchQuery === "") &&
-        (job.type === selectedType || selectedType === "") &&
-        (job.industry === selectedIndustry || selectedIndustry === "")
-    );
+    const employerList = document.getElementById("employer-list");
+    const jobList = document.getElementById("job-list");
 
-    displayJobs(filteredJobs);
-}
-
-function displayJobs(jobs) {
-    let container = document.getElementById("job-container");
-    container.innerHTML = "";
-    
-    if (jobs.length === 0) {
-        container.innerHTML = "<p>No jobs found.</p>";
-        return;
+    function displayEmployers() {
+        employerList.innerHTML = "";
+        employers.forEach(employer => {
+            const employerCard = document.createElement("div");
+            employerCard.classList.add("listing-card");
+            employerCard.innerHTML = `
+                <h3>${employer.name}</h3>
+                <p><strong>Inclusivity Rating:</strong> <span class="rating">⭐ ${employer.rating}</span></p>
+                <p><strong>Benefits:</strong> ${employer.benefits}</p>
+                <a href="${employer.link}" class="apply-btn">Visit Employer</a>
+            `;
+            employerList.appendChild(employerCard);
+        });
     }
 
-    jobs.forEach(job => {
-        let jobElement = document.createElement("div");
-        jobElement.classList.add("job-card");
-        jobElement.innerHTML = `<h3>${job.title}</h3><p>Type: ${job.type}</p><p>Industry: ${job.industry}</p>`;
-        container.appendChild(jobElement);
-    });
-}
+    function displayJobs() {
+        jobList.innerHTML = "";
+        jobs.forEach(job => {
+            const jobCard = document.createElement("div");
+            jobCard.classList.add("listing-card");
+            jobCard.innerHTML = `
+                <h3>${job.title}</h3>
+                <p><strong>Company:</strong> ${job.company}</p>
+                <p><strong>Location:</strong> ${job.location}</p>
+                <p><strong>Salary:</strong> ${job.salary}</p>
+                <a href="${job.link}" class="apply-btn">Apply Now</a>
+            `;
+            jobList.appendChild(jobCard);
+        });
+    }
 
-// Initial job display
-displayJobs(jobData);
+    function filterListings() {
+        const query = document.getElementById("search-bar").value.toLowerCase();
+        displayEmployers(employers.filter(e => e.name.toLowerCase().includes(query)));
+        displayJobs(jobs.filter(j => j.title.toLowerCase().includes(query) || j.company.toLowerCase().includes(query)));
+    }
+
+    displayEmployers();
+    displayJobs();
+
+    window.filterListings = filterListings;
+});
